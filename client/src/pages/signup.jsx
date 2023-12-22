@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function App() {
+function Signin() {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -48,18 +48,20 @@ function App() {
   const handleconfirmemailBlur = (e) => {
     if (e.target.value !== formData.email) {
       setConfirmEmailError("Emails should match");
+    } else if (!e.target.value) {
+      setConfirmEmailError("Enter email conformation");
     } else {
       setConfirmEmailError("");
     }
   };
 
   return (
-    <form className="bg-gray-100 flex flex-col items-center justify-center h-screen">
+    <form className=" flex flex-col items-center justify-center my-24">
       <h1 className="text-2xl font-bold mb-5 text-gray-800">Sign Up</h1>
-      <div className="mb-4">
+      <div className="mb-2 ">
         <label
           htmlFor="username"
-          className="block text-gray-700 text-sm font-bold mb-2"
+          className="block text-gray-700 text-sm font-bold "
         >
           Username
         </label>
@@ -79,10 +81,10 @@ function App() {
         />
         <p className="text-red-500 text-xs italic h-4">{usernameError}</p>
       </div>
-      <div className="mb-4">
+      <div className="mb-2 ">
         <label
           htmlFor="email"
-          className="block text-gray-700 text-sm font-bold mb-2"
+          className="block text-gray-700 text-sm font-bold "
         >
           Email
         </label>
@@ -99,10 +101,10 @@ function App() {
         />
         <p className="text-red-500 text-xs italic h-4">{emailError}</p>
       </div>
-      <div className="mb-4">
+      <div className="mb-2 ">
         <label
           htmlFor="confirmEmail"
-          className="block text-gray-700 text-sm font-bold mb-2"
+          className="block text-gray-700 text-sm font-bold "
         >
           Confirm Email
         </label>
@@ -119,11 +121,10 @@ function App() {
         />
         <p className="text-red-500 text-xs italic h-4">{confirmemailError}</p>
       </div>
-
-      <div className="mb-6">
+      <div className="mb-2 ">
         <label
           htmlFor="password"
-          className="block text-gray-700 text-sm font-bold mb-2"
+          className="block text-gray-700 text-sm font-bold "
         >
           Password
         </label>
@@ -150,4 +151,4 @@ function App() {
   );
 }
 
-export default App;
+export default Signin;

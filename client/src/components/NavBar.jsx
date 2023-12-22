@@ -8,8 +8,8 @@ export const NavBar = (props) => {
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
           <h1 className="font-bold text-sm sm:text-xl flex flex-wrap">
-            <span className="text-slate-500">Ecommerce</span>
-            <span className="text-slate-700">App</span>
+            <span className="text-slate-500">985</span>
+            <span className="text-slate-700">Treasury</span>
           </h1>
         </Link>
         <form
@@ -28,6 +28,11 @@ export const NavBar = (props) => {
           </button>
         </form>
         <ul className="flex gap-4 items-center">
+          <Link to="/signup">
+            <li className="hidden sm:inline text-slate-700 hover:underline">
+              Sign Up
+            </li>
+          </Link>
           <Link to="/signin">
             <li className="hidden sm:inline text-slate-700 hover:underline">
               Sign In
