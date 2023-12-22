@@ -4,4 +4,6 @@
 
 body {
   background-color: rgb(241, 245, 241);
+  --tw-text-opacity: 1;
+  color: rgb(51 65 85 / var(--tw-text-opacity));
 }

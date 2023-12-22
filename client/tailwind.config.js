@@ -8,7 +8,14 @@ export default {
     "./src/**/*.tsx",
   ],
   theme: {
-    extend: {},
+    extend: {
+      width: {
+        "80%": "80%",
+      },
+      backgroundColor: {
+        "custom-green": "rgb(241, 245, 241)",
+      },
+    },
   },
   plugins: [],
 };
