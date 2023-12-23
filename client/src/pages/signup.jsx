@@ -11,6 +11,7 @@ function Signin() {
   const [emailError, setEmailError] = useState("");
   const [confirmemailError, setConfirmEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [confirmpwError, setConfirmpwError] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -43,6 +44,14 @@ function Signin() {
       setPasswordError("Password should be more than 8 characters");
     } else {
       setPasswordError("");
+    }
+  };
+  const handleconfirmpwBlur = (e) => {
+    console.log(formData, e.target.value);
+    if (e.target.value !== formData.password) {
+      setConfirmpwError("Passwords should match");
+    } else {
+      setConfirmpwError("");
     }
   };
   const handleconfirmemailBlur = (e) => {
@@ -140,6 +149,26 @@ function Signin() {
           onBlur={handlepasswordBlur}
         />
         <p className="text-red-500 text-xs italic h-4">{passwordError}</p>
+      </div>
+      <div className="mb-6">
+        <label
+          htmlFor="confirmPW"
+          className="block text-gray-700 text-sm font-bold mb-2"
+        >
+          Confirm Password
+        </label>
+        <input
+          type="password"
+          id="confirmPW"
+          required
+          className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600 ${
+            confirmpwError && "border-red-500"
+          }`}
+          placeholder="confirmPW"
+          onChange={handleChange}
+          onBlur={handleconfirmpwBlur}
+        />
+        <p className="text-red-500 text-xs italic h-4">{confirmpwError}</p>
       </div>
       <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
