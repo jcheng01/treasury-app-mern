@@ -15,6 +15,7 @@ const Transactions = (props) => {
           <p className="bg-slate-200 text-center font-bold">
             Log In to show dashboard
           </p>
+          <Item />
         </div>
       </div>
     </>
