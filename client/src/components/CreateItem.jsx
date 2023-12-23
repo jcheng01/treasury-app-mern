@@ -26,7 +26,7 @@ function CreateItem() {
         </button>
       </div>
       {showForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center transition-opacity duration-500">
+        <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center">
           <form
             onSubmit={handleSubmit}
             className="flex flex-col p-4 max-w-md mx-auto mt-8 bg-custom-green rounded-lg shadow-lg"
