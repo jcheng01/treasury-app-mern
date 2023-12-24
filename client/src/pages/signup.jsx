@@ -47,7 +47,7 @@ function Signin() {
     }
   };
   const handleconfirmpwBlur = (e) => {
-    console.log(formData, e.target.value);
+    // console.log(formData, e.target.value);
     if (e.target.value !== formData.password) {
       setConfirmpwError("Passwords should match");
     } else {
@@ -64,8 +64,31 @@ function Signin() {
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData);
+
+    try {
+      const res = await fetch("/api/users/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+    } catch (error) {
+      console.error("There was a problem with the fetch operation:", error);
+    }
+  };
+
   return (
-    <form className=" flex flex-col items-center justify-center my-24">
+    <form
+      className=" flex flex-col items-center justify-center my-24"
+      onSubmit={handleSubmit}
+    >
       <h1 className="text-2xl font-bold mb-5 text-gray-800">Sign Up</h1>
       <div className="mb-2 ">
         <label

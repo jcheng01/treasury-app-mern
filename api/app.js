@@ -19,10 +19,15 @@ mongoose
 require("./models/users.models");
 require("./models/transactions.model");
 
+app.use(express.json()); //use the json middleware to parse incoming payloads, need it for post requests
+
+const cors = require("cors");
+app.use(cors()); // Use this before your routes are set up
+
 //Routes
 const usersRoutes = require("./routes/users.routes");
 const transactionsRoutes = require("./routes/transactions.routes");
-app.use("/api/users", usersRoutes);
+app.use("/users", usersRoutes);
 app.use("/api/transactions", transactionsRoutes);
 
 //end of all routes
